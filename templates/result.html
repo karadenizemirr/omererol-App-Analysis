@@ -1,0 +1,91 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .result li {
+        margin-top: 10px;
+        list-style-type: none;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="page-title text-center">
+            <h1>
+                Analiz Sonuçları - <span class="text-primary" >{{result.app_name}}</span>
+            </h1>
+        </div>
+        <div class="content">
+            <div class="result text-center">
+                <ul style="list-style-type: none; font-size: 20px;" >
+                    <li>
+                        <span style="font-weight: 900;">Issues</span>
+                        {% if result.issues %}
+                            {% for issue in result.issues %}
+                            <li class="text-danger" >
+                                {{issue}}
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>
+                                <span class="text-success" style="font-weight: 900;">The app looks safe.</span>
+                            </li>
+                        {% endif %}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Paket Adı:</span> {{result.package_name}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Uygulama Adı:</span> {{result.app_name}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Android Versiyon:</span> {{result.android_version}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Android Version-2:</span> {{result.android_version_2}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Min SDK:</span> {{result.min_sdk}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Target SDK:</span> {{result.target_sdk_version}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Permissions:</span>
+
+                        <ul class="ml-4">
+                            {% for permission in result.permission %}
+                            <li>{{permission}}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Activites:</span>
+                        {% for activite in result.activites %}
+                        <li>{{activite}}</li>
+                        {% endfor %}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Services:</span>
+                        {% for service in result.services %}
+                        <li>{{service}}</li>
+                        {% endfor %}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Manifest:</span> {{result.manifest}}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Certificate:</span>
+                        {% for certificate in result.certificate %}
+                        <li>{{certificate}}</li>
+                        {% endfor %}
+                    </li>
+                    <li>
+                        <span style="font-weight: 900" >Resource:</span> {{result.resource}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="form_container">
+    <div class="row">
+        <div class="col-lg-5">
+            <div id="left_form">
+                <figure><img src="{% static 'img/registration_bg.svg' %}" alt=""></figure>
+                <h2>Mobile Uygulamalarınızı Analiz Edin</h2>
+                <p>Mobil uygulamalarınızı kolayca analiz edin.</p>
+                <a href="#0" id="more_info" data-bs-toggle="modal" data-bs-target="#more-info"><i
+                        class="pe-7s-info"></i></a>
+            </div>
+        </div>
+<div class="col-lg-7 text-center d-flex justify-content-center align-items-center">
+    <div id="wizard_container" class="d-flex justify-content-center align-items-center">
+        <!-- /top-wizard -->
+        <form name="file_upload" method="POST" enctype="multipart/form-data" action="/upload">
+            {% csrf_token %}
+            <!-- Leave for security protection, read docs for details -->
+            <div id="middle-wizard">
+                <div class="step">
+                    <h3 class="main_question">Analiz etmek istediğiniz mobil uygulamayı seçin.</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="file" class="form-file-control" placeholder="Analiz Edilecek Dosya" name="app_file">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">
+                                Analiz Et
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /Wizard container -->
+</div>
+    </div><!-- /Row -->
+</div><!-- /Form_container -->
+{% endblock %}
