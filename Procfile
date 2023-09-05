@@ -1,1 +1,1 @@
-web: gunicorn omererol.wsgi
+web: gunicorn omererol.wsgi -log-file -
