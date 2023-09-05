@@ -18,7 +18,7 @@ def upload_file(request):
             fs = FileSystemStorage(location=settings.STATIC_ROOT + '/uploads')
             filename = fs.save(file_info.name, file_info)
             uploaded_file_url = fs.url(filename)
-            result = apk_analysis.apk_anaysis(f"{settings.STATIC_ROOT}{uploaded_file_url}")
+            result = apk_analysis.apk_anaysis(f"{settings.STATIC_ROOT}/uploads{uploaded_file_url}")
 
             return render(request, 'result.html', {'result':result})
         else:
