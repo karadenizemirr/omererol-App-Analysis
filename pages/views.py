@@ -15,10 +15,10 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             file_info = request.FILES['app_file']
-            fs = FileSystemStorage()
+            fs = FileSystemStorage(location=settings.STATIC_ROOT + '/uploads')
             filename = fs.save(file_info.name, file_info)
             uploaded_file_url = fs.url(filename)
-            result = apk_analysis.apk_anaysis(f"{settings.BASE_DIR}{uploaded_file_url}")
+            result = apk_analysis.apk_anaysis(f"{settings.STATIC_ROOT}{uploaded_file_url}")
 
             return render(request, 'result.html', {'result':result})
         else:
