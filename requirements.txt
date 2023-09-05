@@ -14,10 +14,13 @@ contourpy==1.1.0
 cryptography==41.0.3
 cycler==0.11.0
 decorator==5.1.1
+dj-database-url==2.1.0
 Django==4.2.5
+django-on-heroku==1.1.2
 executing==1.2.0
 fonttools==4.42.1
 future==0.18.3
+gunicorn==21.2.0
 idna==3.4
 ipython==8.15.0
 javalang==0.13.0
@@ -37,6 +40,7 @@ pickleshare==0.7.5
 Pillow==10.0.0
 pluginbase==1.0.1
 prompt-toolkit==3.0.39
+psycopg2-binary==2.9.7
 ptyprocess==0.7.0
 pure-eval==0.2.2
 pycparser==2.21
@@ -50,5 +54,7 @@ six==1.16.0
 sqlparse==0.4.4
 stack-data==0.6.2
 traitlets==5.9.0
+typing_extensions==4.7.1
 urllib3==2.0.4
 wcwidth==0.2.6
+whitenoise==6.5.0
